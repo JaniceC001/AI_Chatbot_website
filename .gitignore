@@ -1,0 +1,31 @@
+# .gitignore
+
+# 忽略所有作業系統產生的檔案
+Thumbs.db
+ehthumbs.db
+
+# 忽略Node.js 的依賴套件資料夾
+/backend/node_modules
+
+# 忽略 IDE 和編輯器產生的設定檔
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 忽略Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 忽略環境變數檔案
+# 目前是從前端傳遞 API Key，但未來若改用 .env 檔，預先加入可以防止意外洩漏
+.env
+.env.local
+.env.*.local
+
+# 忽略打包或建置後的輸出資料夾
+/build
+/dist
+/out

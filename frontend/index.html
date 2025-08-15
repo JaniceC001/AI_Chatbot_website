@@ -1,0 +1,71 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 設定區 -->
+        <div class="settings-panel">
+            <h2>設定</h2>
+            <div class="setting-item">
+                <label for="api-key">API Key (暫時儲存)</label>
+                <input type="password" id="api-key" placeholder="請輸入你的 API Key">
+            </div>
+            <div class="setting-item">
+                <label for="api-base-url">API URL</label>
+                <input type="text" id="api-base-url" placeholder="例如: https://api.groq.com/openai/v1">
+                <scan>不需要填寫/chat/completions! <br> Mistral URL: https://api.mistral.ai/v1</scan>
+            </div>
+            <div class="setting-item">
+                <label for="model-name">模型名稱</label>
+                <input type="text" id="model-name" placeholder="例如: gpt-3.5-turbo">
+                <scan>Mistral Model: mistral-large-2411</scan>
+            </div>
+            <div class="setting-item">
+                <label for="system-prompt">系統提示 (System Prompt)</label>
+                <textarea id="system-prompt" rows="3">你是一個名為「AI助理」的AI，請用繁體中文回答問題。</textarea>
+            </div>
+            <div class="setting-item">
+                <label for="character-prompt">角色設定 (Character Prompt)</label>
+                <textarea id="character-prompt" rows="3">你的個性活潑開朗，喜歡在回覆中加入一些表情符號。</textarea>
+            </div>
+            <!--上下文和最大回復需要添加直接編輯的功能-->
+            <div class="setting-item">
+                <div class="slider-label-group">
+                    <label for="context-length-slider">上下文長度:</label>
+                    <input type="number" id="context-length-input" min="1024" max="40000" value="4096">
+                </div>
+                <input type="range" id="context-length-slider" min="1024" max="40000" value="4096">
+            </div>
+            <div class="setting-item">
+                <div class="slider-label-group">
+                    <label for="max-tokens-slider">最大回覆 Token:</label>
+                    <input type="number" id="max-tokens-input" min="1024" max="10000" value="2048">
+                </div>
+                <input type="range" id="max-tokens-slider" min="1024" max="10000" value="2048">
+            </div>
+
+            <button id="change-background">切換主題(黑/白/淺綠)</button>
+            <button id="clear-chat">清除對話紀錄</button>
+        </div>
+
+        <!-- 對話區 -->
+        <div class="chat-panel">
+            <div id="chat-history">
+                <!-- 對話紀錄會顯示在這裡 -->
+            </div>
+            <div class="chat-input">
+                <textarea id="user-input" placeholder="在這裡輸入訊息..." rows="1"></textarea>
+                <button id="send-btn">傳送</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
